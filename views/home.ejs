@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="../js/bootstrap.js"></script>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+        <style>
+            .content{
+                width: 70%;
+                margin: 50px 15% 0px 15%;
+            }
+            .content-title{
+                text-align: center;
+            }
+            .address-txtfield{
+                width: 90%;
+                margin: 50px 5% 10px 5%;
+                height: 40px;
+            }
+            .look-btn{
+                min-width: 90%;
+                padding: 10px 0px;
+                color: white;
+                background-color: green;
+                margin: 10px 5% 10px 5%;
+            }
+            .xrp-link{
+                margin-left: 80px;
+            }
+        </style>
+        <title>TRUSTLINE LOOKUP</title>
+    </head>
+    <body>
+        <div class="main">
+            <div class="content">
+                <h2 class="content-title">Trustline Look Up</h2>
+                <a href="/account_balance" class="xrp-link">View Account Balance</a>
+                <form method="get" action="to_look">
+                    <input type="text" name="address" placeholder="Enter issuer addres" class="address-txtfield">
+                    <input type="submit" value="Look" class="look-btn">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

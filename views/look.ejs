@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="../js/bootstrap.js"></script>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+        
+        <title>TRUSTLINE LOOKUP</title>
+    </head>
+    <body>
+        <div class="main">
+            <div class="content">
+                <div class="table-div">
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Position</th>
+                            <th>Total TL</th>
+                            <th>Balance</th>
+                            <th>Address</th>
+                        </tr>
+                        <% 
+                            var count_filled = 0;
+                            var count_no_tl = 0;
+                            var total_bal = 0;
+                            for(var x = 0 ; x < data[0].length ; x++) { 
+                                count_filled = (data[x].bal != 0) ? count_filled + 1 : count_filled;
+                                count_no_tl = (data[x].pos == 0) ? count_no_tl + 1 : count_no_tl;
+                                total_bal = total_bal + parseFloat(data[x].bal);
+                                %>
+                                
+                                <tr style="<%= (data[x].pos == 0) ? 'background-color: red;color: white;' :
+                                (data[x].bal != 0) ? 'background-color: green; color:white;' :
+                                'background-color: white;color: black;'%>;">
+                                    <td><%= x+1 %></td>
+                                    <td><%= data[x].pos %></td>
+                                    <td><%= data[x].total %></td>
+                                    <td><%= data[x].bal %></td>
+                                    <td><%= data[x].address %></td>
+                                </tr>
+                <%        } %>
+                
+                    </table>
+                </div>
+                <div class="labels">
+                    <p class="filled-lbl"><span class="span-filled">Filled: </span>  <%= " " + count_filled  %></p>
+                    <p class="notl-lbl"><span class="span-filled">No Trustline: </span>  <%= " " + count_no_tl  %></p>
+                    <p class="tot-bal"><span class="span-filled">Total balance: </span><%= total_bal.toFixed(2) %></p>
+                    <a href="/account_balance" class="xrp-link">View Account Balance</a>
+                </div>
+               
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="../js/bootstrap.js"></script>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+        
+        <title>TRUSTLINE LOOKUP</title>
+    </head>
+    <body>
+        <div class="main">
+            <div class="content">
+                <div class="table-div">
+                    <table>
+                        <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col">Account Balance</th>
+                            <th scope="col">Address</th>
+                        </tr>
+                        <% 
+                            var low_xrp = 0;
+                            var total_bal = 0;
+                            var warning_lvl = 0;
+                            for(var x = 0 ; x < data[0].length ; x++) { 
+                                var trunc_num = Math.trunc(data[x].bal);
+                                low_xrp = (trunc_num < 1.99) ? low_xrp + 1 : low_xrp;
+                                warning_lvl = (trunc_num < 5.99) ? warning_lvl + 1 : warning_lvl;
+                                total_bal = total_bal + parseFloat(data[x].bal);
+                                %>
+                                
+                                <tr style="<%= (trunc_num < 1.99) ? 'background-color: red;color: white;' :
+                                (trunc_num < 5.99) ? 'background-color: yellow;color: red;' 
+                                :'background-color: green; color:white;'%>">
+                                    <td><%= x+1 %></td>
+                                    <td><%= data[x].bal %></td>
+                                    <td><%= data[x].address %></td>
+                                </tr>
+                <%        } %>
+                
+                    </table>
+                </div>
+                <div class="labels">
+                    <p class="notl-lbl"><span class="span-filled">Low XRP: </span>  <%= " " + low_xrp  %></p>
+                    <p class="warnlvl-lbl"><span class="span-filled">Warning lvl XRP: </span>  <%= " " + warning_lvl %></p>
+                    <p class="tot-bal"><span class="span-filled">Total balance: </span><%= total_bal.toFixed(2) %></p>
+                </div>
+               
+            </div>
+        </div>
+    </body>
+</html>
