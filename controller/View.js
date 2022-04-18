@@ -3,15 +3,17 @@ const position = new PosModel();
 
 class View {
     constructor() {
-
     }
+    
     home(req, res) {
         res.render("home");
     }
+
     to_look(req, res) {
         var address = req.query.address;
         res.redirect("/look/"+address);
-    }   
+    }
+
     async look(req, res) {
         var address = req.params.address;
         var data = await position.getPos(address);
@@ -48,7 +50,6 @@ class View {
             //     getRowInsert.commit();
             //     return workbook.xlsx.writeFile(available_file);
             // })
-           
             console.log();
             fs.appendFile(available_file, available.toFixed(2)+" --- "+datetime.toISOString().slice(0,10)+"\n", err =>{
                 if(err){
