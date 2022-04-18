@@ -15,14 +15,7 @@ class View {
     async look(req, res) {
         var address = req.params.address;
         var data = await position.getPos(address);
-        // for(var x = 0 ; x < data[0].length ; x++) {
-        //     var address_account = data[x].address;
-        //     var xrp = await position.getAccountBal(address_account);
-        //     new_data[x] = {pos: data[x].pos, address: address_account, length: data[x].length, 
-        //     total: data[x].total, bal: data[x].bal, xrp: xrp};
-        // }
-        res.render("look", {data: data});
-        // res.render("look")       
+        res.render("look", {data: data});  
     }
 
     async account_balance(req, res) {
