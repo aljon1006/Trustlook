@@ -15,6 +15,7 @@ class View {
     async look(req, res) {
         var address = req.params.address;
         var data = await position.getPos(address);
+
         res.render("look", {data: data});  
     }
 
