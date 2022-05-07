@@ -1,0 +1,1002 @@
+ALL----------------------------------------------------------------------------------ALL
+{
+  "0": {
+    "bal": "894.833552",
+    "length": 71,
+    "address": "rGfz8KHtNVTEpYN1jnPCmfGhe4k8zmR4ew",
+    "total": 894.833552,
+    "date": "2022-05-07"
+  },
+  "1": {
+    "bal": "1092.49069",
+    "length": 71,
+    "address": "rUAAxf4vDT2Y8TBuq1YYEy73bS6o8kVLxx",
+    "total": 1987.3242420000001,
+    "date": "2022-05-07"
+  },
+  "2": {
+    "bal": "518.908146",
+    "length": 71,
+    "address": "r9aBr4RTjqkZtKMFrs3VgpW8qKGT5UgqUS",
+    "total": 2506.2323880000004,
+    "date": "2022-05-07"
+  },
+  "3": {
+    "bal": "1613.93823",
+    "length": 71,
+    "address": "r34kcg8rhCPF8jjALqF3fNqVHEjUh1cUdX",
+    "total": 4120.170618,
+    "date": "2022-05-07"
+  },
+  "4": {
+    "bal": "469.220214",
+    "length": 71,
+    "address": "rftd1iFWXZ8kM7eTyFCDRrwwATarDBGjv9",
+    "total": 4589.390832,
+    "date": "2022-05-07"
+  },
+  "5": {
+    "bal": "447.97336",
+    "length": 71,
+    "address": "rGSnar2hY1UswB8JNZMJ2tMh1X8kPgqikY",
+    "total": 5037.364192,
+    "date": "2022-05-07"
+  },
+  "6": {
+    "bal": "294.586502",
+    "length": 71,
+    "address": "rDB3tDkRzMyN4hjZvEcsZUkA1QnRCpCzzG",
+    "total": 5331.950694,
+    "date": "2022-05-07"
+  },
+  "7": {
+    "bal": "448.26597",
+    "length": 71,
+    "address": "rJH4huJnf3yMmHxLKwyK32kSbN9NWENC5y",
+    "total": 5780.2166640000005,
+    "date": "2022-05-07"
+  },
+  "8": {
+    "bal": "445.001105",
+    "length": 71,
+    "address": "rpHZWTeXKpFTAKcLBwi1VQRKn3enPv56JF",
+    "total": 6225.217769000001,
+    "date": "2022-05-07"
+  },
+  "9": {
+    "bal": "508.322299",
+    "length": 71,
+    "address": "rJe85RkuFsUKQY5KoQjuA5AsbAmmx7LMZ2",
+    "total": 6733.540068000001,
+    "date": "2022-05-07"
+  },
+  "10": {
+    "bal": "462.993002",
+    "length": 71,
+    "address": "rUZ4wHxUBCfm1DmeRE3nFXQW5VYzEchiaP",
+    "total": 7196.533070000001,
+    "date": "2022-05-07"
+  },
+  "11": {
+    "bal": "534.891763",
+    "length": 71,
+    "address": "rGeGgwzusuaeCxQfik58nR9t9KA75HhJ3A",
+    "total": 7731.424833000001,
+    "date": "2022-05-07"
+  },
+  "12": {
+    "bal": "357.074795",
+    "length": 71,
+    "address": "rUGAe5Utkx28HG9P9P7k2bvVdJ7UbJeGn9",
+    "total": 8088.499628000001,
+    "date": "2022-05-07"
+  },
+  "13": {
+    "bal": "523.814831",
+    "length": 71,
+    "address": "r3qk3EnRR671FJJF7BsA6rESvVS3J7BE4E",
+    "total": 8612.314459000001,
+    "date": "2022-05-07"
+  },
+  "14": {
+    "bal": "302.484044",
+    "length": 71,
+    "address": "rsDAJQCkGPokNHbkq4w79jmwgrV8vAd3HL",
+    "total": 8914.798503000002,
+    "date": "2022-05-07"
+  },
+  "15": {
+    "bal": "527.338311",
+    "length": 71,
+    "address": "rhzGwh6ASaK3NCwzUxcmAZgb8nsDfnCvB7",
+    "total": 9442.136814000001,
+    "date": "2022-05-07"
+  },
+  "16": {
+    "bal": "370.020244",
+    "length": 71,
+    "address": "rL3JvQWzBDuXfxRMLYJ1WYtYVm5M8Q86wq",
+    "total": 9812.157058,
+    "date": "2022-05-07"
+  },
+  "17": {
+    "bal": "425.809965",
+    "length": 71,
+    "address": "rwUQ6YvfWx7Wcmqq5SVYQQS8gWJwqHsntt",
+    "total": 10237.967023000001,
+    "date": "2022-05-07"
+  },
+  "18": {
+    "bal": "328.26825",
+    "length": 71,
+    "address": "rahknT786Vugc7PHrtm6jdsAos95u1Jk66",
+    "total": 10566.235273,
+    "date": "2022-05-07"
+  },
+  "19": {
+    "bal": "499.003361",
+    "length": 71,
+    "address": "rwQiNCFbGGXkrs7E7RXg44W6ckvGKjk1h1",
+    "total": 11065.238634,
+    "date": "2022-05-07"
+  },
+  "20": {
+    "bal": "663.571947",
+    "length": 71,
+    "address": "rN6H7UHoufKWnqN7sgGGhRsw7Q5XUzyYTo",
+    "total": 11728.810581,
+    "date": "2022-05-07"
+  },
+  "21": {
+    "bal": "449.713166",
+    "length": 71,
+    "address": "rsWitG5o7iFkTus3xPNCZyMD5x6sdqXiyb",
+    "total": 12178.523747,
+    "date": "2022-05-07"
+  },
+  "22": {
+    "bal": "495.665449",
+    "length": 71,
+    "address": "rDRyLYPLemcg1hv9rwvwX9tdh13BVT3Mne",
+    "total": 12674.189196,
+    "date": "2022-05-07"
+  },
+  "23": {
+    "bal": "350.978789",
+    "length": 71,
+    "address": "rnhbJHjPy1NfwSPJ7WyZhyhS1CJoqtmGyg",
+    "total": 13025.167985,
+    "date": "2022-05-07"
+  },
+  "24": {
+    "bal": "260.067345",
+    "length": 71,
+    "address": "rDB8dyp2WTNjzkqUY9FmroezdXtWF29zAk",
+    "total": 13285.23533,
+    "date": "2022-05-07"
+  },
+  "25": {
+    "bal": "292.661975",
+    "length": 71,
+    "address": "r9CWxW1tEVnKhjvSMwvwU69bShMxyCHHsG",
+    "total": 13577.897304999999,
+    "date": "2022-05-07"
+  },
+  "26": {
+    "bal": "598.319156",
+    "length": 71,
+    "address": "rnPsMi5FsX3EMFFAz4z99DWnLj9xeFRBxX",
+    "total": 14176.216460999998,
+    "date": "2022-05-07"
+  },
+  "27": {
+    "bal": "269.384679",
+    "length": 71,
+    "address": "rDfD5cYNDBxQ19JmADdm7RbiYhucBdicja",
+    "total": 14445.601139999999,
+    "date": "2022-05-07"
+  },
+  "28": {
+    "bal": "233.11043",
+    "length": 71,
+    "address": "rDAkNkevYdgvpz6hSXcVzDLKvuiCmJF1Z6",
+    "total": 14678.71157,
+    "date": "2022-05-07"
+  },
+  "29": {
+    "bal": "288.265494",
+    "length": 71,
+    "address": "rJPfVTy9tiduJ3UzdkdETUTHrXvrSTqkYp",
+    "total": 14966.977063999999,
+    "date": "2022-05-07"
+  },
+  "30": {
+    "bal": "1155.500386",
+    "length": 71,
+    "address": "rUgJGra8xGJp9j1MuEjjSj65vSmtpXaLT6",
+    "total": 16122.477449999998,
+    "date": "2022-05-07"
+  },
+  "31": {
+    "bal": "1067.129466",
+    "length": 71,
+    "address": "rU8pdWYbz3cEGDTowTjQrsS2hMcn7kCJym",
+    "total": 17189.606915999997,
+    "date": "2022-05-07"
+  },
+  "32": {
+    "bal": "703.02564",
+    "length": 71,
+    "address": "rp1RKssp9Y6YQnpvfcvB3HRgS2XCoKEiu8",
+    "total": 17892.632555999997,
+    "date": "2022-05-07"
+  },
+  "33": {
+    "bal": "538.74403",
+    "length": 71,
+    "address": "rDBMue4urzWRsfoLEEYbcxhNFkDa1bjDc7",
+    "total": 18431.376586,
+    "date": "2022-05-07"
+  },
+  "34": {
+    "bal": "826.148897",
+    "length": 71,
+    "address": "rJCCbtdZSpSbcPN2N6tn65RRUXmDcmqjvo",
+    "total": 19257.525482999998,
+    "date": "2022-05-07"
+  },
+  "35": {
+    "bal": "454.682993",
+    "length": 71,
+    "address": "rwpcUQqBNfG5tRWXEy2t13wMV1vGq3mN89",
+    "total": 19712.208475999996,
+    "date": "2022-05-07"
+  },
+  "36": {
+    "bal": "314.075334",
+    "length": 71,
+    "address": "rpuFSBPjUxpMsAaMZr1xEcRrtrSuMfnRvT",
+    "total": 20026.283809999997,
+    "date": "2022-05-07"
+  },
+  "37": {
+    "bal": "522.79236",
+    "length": 71,
+    "address": "rLDNGw7kQpRXqJzqhtYthBxdnvd9mxqcgb",
+    "total": 20549.076169999997,
+    "date": "2022-05-07"
+  },
+  "38": {
+    "bal": "638.005643",
+    "length": 71,
+    "address": "rLh1KJVDpGwifTCk5wutaZE5Q76gdvdLfS",
+    "total": 21187.081812999997,
+    "date": "2022-05-07"
+  },
+  "39": {
+    "bal": "452.49245",
+    "length": 71,
+    "address": "rMBfJP5WMXwsaBoNHuGB9EEHo7axWwweSM",
+    "total": 21639.574263,
+    "date": "2022-05-07"
+  },
+  "40": {
+    "bal": "359.476092",
+    "length": 71,
+    "address": "rKPqnH6xPGMTjzu3ES8k6osekCF71ssDyM",
+    "total": 21999.050355,
+    "date": "2022-05-07"
+  },
+  "41": {
+    "bal": "375.270231",
+    "length": 71,
+    "address": "rfG3xPWrd7EuYcuBwFiiW83psX9jGcPWpk",
+    "total": 22374.320585999998,
+    "date": "2022-05-07"
+  },
+  "42": {
+    "bal": "361.07381",
+    "length": 71,
+    "address": "rfp2bmtguqvEi8yg2UHCn8iXw1Ly4NdXcd",
+    "total": 22735.394396,
+    "date": "2022-05-07"
+  },
+  "43": {
+    "bal": "749.198047",
+    "length": 71,
+    "address": "rGvnBo5mhzt2nCq4pLGVdPiFvioDw4BWXU",
+    "total": 23484.592443,
+    "date": "2022-05-07"
+  },
+  "44": {
+    "bal": "358.440701",
+    "length": 71,
+    "address": "rfEcrYqBoddwhm37QSiq5hS2Q5nPqYqbDN",
+    "total": 23843.033144,
+    "date": "2022-05-07"
+  },
+  "45": {
+    "bal": "450.727702",
+    "length": 71,
+    "address": "rKrK7rT7GFAgwWSZRQBPX7MXksc3tGQrxQ",
+    "total": 24293.760846,
+    "date": "2022-05-07"
+  },
+  "46": {
+    "bal": "367.102845",
+    "length": 71,
+    "address": "ra1gChXBVK1apXBAHYtX8VAbFsrmu3gb3T",
+    "total": 24660.863691000002,
+    "date": "2022-05-07"
+  },
+  "47": {
+    "bal": "764.877181",
+    "length": 71,
+    "address": "r4P98RFRUBnMrAJdxSHRBBMhbJjBBByKEX",
+    "total": 25425.740872000002,
+    "date": "2022-05-07"
+  },
+  "48": {
+    "bal": "334.690526",
+    "length": 71,
+    "address": "rU9hQm8iwJoSxaY91bav93tFF98yfCScyY",
+    "total": 25760.431398,
+    "date": "2022-05-07"
+  },
+  "49": {
+    "bal": "374.706535",
+    "length": 71,
+    "address": "rGGjck9jgZcCj4NBAQBiciTv3Ep88yfyWq",
+    "total": 26135.137933,
+    "date": "2022-05-07"
+  },
+  "50": {
+    "bal": "1104.50838",
+    "length": 71,
+    "address": "rJeb356QSWU871S3THSgXqJ3QJ38aSRGMz",
+    "total": 27239.646313,
+    "date": "2022-05-07"
+  },
+  "51": {
+    "bal": "375.862619",
+    "length": 71,
+    "address": "rJAQCY75FMXMwRvgXpnMzxQZEN4kGC3QvS",
+    "total": 27615.508932,
+    "date": "2022-05-07"
+  },
+  "52": {
+    "bal": "378.002248",
+    "length": 71,
+    "address": "rnV2jyNPeKkmQ11Tdn85wbA4eDYEuUXDLv",
+    "total": 27993.51118,
+    "date": "2022-05-07"
+  },
+  "53": {
+    "bal": "415.237377",
+    "length": 71,
+    "address": "rPhDzWZ8myQGnzCo2DCHPYGYLkreNtnR1",
+    "total": 28408.748557000003,
+    "date": "2022-05-07"
+  },
+  "54": {
+    "bal": "371.965838",
+    "length": 71,
+    "address": "rJ5MJjbv2BxS19ZuPv8MKnF9L7ezHbTWn1",
+    "total": 28780.714395000003,
+    "date": "2022-05-07"
+  },
+  "55": {
+    "bal": "374.629869",
+    "length": 71,
+    "address": "rHFmfJDBpjjymwcFKGeYGYuDcQfnfeRqQ2",
+    "total": 29155.344264000003,
+    "date": "2022-05-07"
+  },
+  "56": {
+    "bal": "432.980333",
+    "length": 71,
+    "address": "raAWY9ccVavTtkP18k2tBpa26M4nGgkZbA",
+    "total": 29588.324597000003,
+    "date": "2022-05-07"
+  },
+  "57": {
+    "bal": "364.702829",
+    "length": 71,
+    "address": "rpj78gQnirtok3mF33iNnhF6Ra6mriCbNj",
+    "total": 29953.027426000004,
+    "date": "2022-05-07"
+  },
+  "58": {
+    "bal": "415.271106",
+    "length": 71,
+    "address": "rNVdgurvKHrT6qnYYnwSPXUWrgU4gbw37f",
+    "total": 30368.298532000004,
+    "date": "2022-05-07"
+  },
+  "59": {
+    "bal": "422.339014",
+    "length": 71,
+    "address": "rhZhHwxXmA5ydg88bW7Z4zeAutfWdoYn2j",
+    "total": 30790.637546000005,
+    "date": "2022-05-07"
+  },
+  "60": {
+    "bal": "224.305849",
+    "length": 71,
+    "address": "rNLNuWp67Cex4ic1oEDMcGGbaZMKV6Q7BD",
+    "total": 31014.943395000006,
+    "date": "2022-05-07"
+  },
+  "61": {
+    "bal": "199.064848",
+    "length": 71,
+    "address": "rDBjq5omhqQWSNgihgNJrX8azVvgKydQDH",
+    "total": 31214.008243000007,
+    "date": "2022-05-07"
+  },
+  "62": {
+    "bal": "205.007479",
+    "length": 71,
+    "address": "rNTRUaippmqiJZrfB4k9NkUVqKeY3qrKmn",
+    "total": 31419.015722000007,
+    "date": "2022-05-07"
+  },
+  "63": {
+    "bal": "177.15004",
+    "length": 71,
+    "address": "rKP4bkro8tJwc4Yebmh4t5AYbmi63yQrc6",
+    "total": 31596.165762000008,
+    "date": "2022-05-07"
+  },
+  "64": {
+    "bal": "210.85536",
+    "length": 71,
+    "address": "rMy74pC1WNVnEDy8KFP5FM9tpxJVDorWns",
+    "total": 31807.02112200001,
+    "date": "2022-05-07"
+  },
+  "65": {
+    "bal": "208.189252",
+    "length": 71,
+    "address": "rwPxGp5mCwD3iq19KWziWNgUEiSgLy9NpM",
+    "total": 32015.21037400001,
+    "date": "2022-05-07"
+  },
+  "66": {
+    "bal": "206.1004",
+    "length": 71,
+    "address": "rd74GWTPX9t5oGBAHSc23GgbTmLBS4zMX",
+    "total": 32221.31077400001,
+    "date": "2022-05-07"
+  },
+  "67": {
+    "bal": "184.984171",
+    "length": 71,
+    "address": "rLqS2ijWKbfgR55BnfVCbiP6nL8b41Gxg5",
+    "total": 32406.29494500001,
+    "date": "2022-05-07"
+  },
+  "68": {
+    "bal": "226.738529",
+    "length": 71,
+    "address": "rP4jafzZqKwkFRRcn2wrUWX1Es5Sm8wq6c",
+    "total": 32633.033474000007,
+    "date": "2022-05-07"
+  },
+  "69": {
+    "bal": "227.391008",
+    "length": 71,
+    "address": "rPhgMWDgqGKCD9KgEMotKUeK2kmJdFV6ud",
+    "total": 32860.42448200001,
+    "date": "2022-05-07"
+  },
+  "70": {
+    "bal": "99.99991",
+    "length": 71,
+    "address": "rwjuTBxVMisXt7Bzsq8oFHCS6Ni3de2FvN",
+    "total": 32960.42439200001,
+    "date": "2022-05-07"
+  }
+}
+ALL----------------------------------------------------------------------------------ALL
+AVAILABLE----------------------------------------------------------------------------------AVAILABLE
+{
+  "0": {
+    "bal": 624.833552,
+    "length": 71,
+    "address": "rGfz8KHtNVTEpYN1jnPCmfGhe4k8zmR4ew",
+    "total": 624.833552,
+    "date": "2022-05-07"
+  },
+  "1": {
+    "bal": 870.4906900000001,
+    "length": 71,
+    "address": "rUAAxf4vDT2Y8TBuq1YYEy73bS6o8kVLxx",
+    "total": 1495.3242420000001,
+    "date": "2022-05-07"
+  },
+  "2": {
+    "bal": 304.908146,
+    "length": 71,
+    "address": "r9aBr4RTjqkZtKMFrs3VgpW8qKGT5UgqUS",
+    "total": 1800.2323880000001,
+    "date": "2022-05-07"
+  },
+  "3": {
+    "bal": 1439.93823,
+    "length": 71,
+    "address": "r34kcg8rhCPF8jjALqF3fNqVHEjUh1cUdX",
+    "total": 3240.170618,
+    "date": "2022-05-07"
+  },
+  "4": {
+    "bal": 287.220214,
+    "length": 71,
+    "address": "rftd1iFWXZ8kM7eTyFCDRrwwATarDBGjv9",
+    "total": 3527.390832,
+    "date": "2022-05-07"
+  },
+  "5": {
+    "bal": 273.97336,
+    "length": 71,
+    "address": "rGSnar2hY1UswB8JNZMJ2tMh1X8kPgqikY",
+    "total": 3801.364192,
+    "date": "2022-05-07"
+  },
+  "6": {
+    "bal": 128.586502,
+    "length": 71,
+    "address": "rDB3tDkRzMyN4hjZvEcsZUkA1QnRCpCzzG",
+    "total": 3929.950694,
+    "date": "2022-05-07"
+  },
+  "7": {
+    "bal": 296.26597,
+    "length": 71,
+    "address": "rJH4huJnf3yMmHxLKwyK32kSbN9NWENC5y",
+    "total": 4226.2166640000005,
+    "date": "2022-05-07"
+  },
+  "8": {
+    "bal": 283.001105,
+    "length": 71,
+    "address": "rpHZWTeXKpFTAKcLBwi1VQRKn3enPv56JF",
+    "total": 4509.217769000001,
+    "date": "2022-05-07"
+  },
+  "9": {
+    "bal": 332.322299,
+    "length": 71,
+    "address": "rJe85RkuFsUKQY5KoQjuA5AsbAmmx7LMZ2",
+    "total": 4841.540068000001,
+    "date": "2022-05-07"
+  },
+  "10": {
+    "bal": 294.993002,
+    "length": 71,
+    "address": "rUZ4wHxUBCfm1DmeRE3nFXQW5VYzEchiaP",
+    "total": 5136.533070000001,
+    "date": "2022-05-07"
+  },
+  "11": {
+    "bal": 380.89176299999997,
+    "length": 71,
+    "address": "rGeGgwzusuaeCxQfik58nR9t9KA75HhJ3A",
+    "total": 5517.424833000001,
+    "date": "2022-05-07"
+  },
+  "12": {
+    "bal": 201.074795,
+    "length": 71,
+    "address": "rUGAe5Utkx28HG9P9P7k2bvVdJ7UbJeGn9",
+    "total": 5718.499628000001,
+    "date": "2022-05-07"
+  },
+  "13": {
+    "bal": 361.814831,
+    "length": 71,
+    "address": "r3qk3EnRR671FJJF7BsA6rESvVS3J7BE4E",
+    "total": 6080.314459000001,
+    "date": "2022-05-07"
+  },
+  "14": {
+    "bal": 144.48404399999998,
+    "length": 71,
+    "address": "rsDAJQCkGPokNHbkq4w79jmwgrV8vAd3HL",
+    "total": 6224.798503000001,
+    "date": "2022-05-07"
+  },
+  "15": {
+    "bal": 383.338311,
+    "length": 71,
+    "address": "rhzGwh6ASaK3NCwzUxcmAZgb8nsDfnCvB7",
+    "total": 6608.136814000001,
+    "date": "2022-05-07"
+  },
+  "16": {
+    "bal": 200.020244,
+    "length": 71,
+    "address": "rL3JvQWzBDuXfxRMLYJ1WYtYVm5M8Q86wq",
+    "total": 6808.157058000002,
+    "date": "2022-05-07"
+  },
+  "17": {
+    "bal": 281.809965,
+    "length": 71,
+    "address": "rwUQ6YvfWx7Wcmqq5SVYQQS8gWJwqHsntt",
+    "total": 7089.967023000002,
+    "date": "2022-05-07"
+  },
+  "18": {
+    "bal": 168.26825000000002,
+    "length": 71,
+    "address": "rahknT786Vugc7PHrtm6jdsAos95u1Jk66",
+    "total": 7258.235273000002,
+    "date": "2022-05-07"
+  },
+  "19": {
+    "bal": 347.003361,
+    "length": 71,
+    "address": "rwQiNCFbGGXkrs7E7RXg44W6ckvGKjk1h1",
+    "total": 7605.238634000002,
+    "date": "2022-05-07"
+  },
+  "20": {
+    "bal": 469.571947,
+    "length": 71,
+    "address": "rN6H7UHoufKWnqN7sgGGhRsw7Q5XUzyYTo",
+    "total": 8074.8105810000025,
+    "date": "2022-05-07"
+  },
+  "21": {
+    "bal": 299.713166,
+    "length": 71,
+    "address": "rsWitG5o7iFkTus3xPNCZyMD5x6sdqXiyb",
+    "total": 8374.523747000003,
+    "date": "2022-05-07"
+  },
+  "22": {
+    "bal": 337.665449,
+    "length": 71,
+    "address": "rDRyLYPLemcg1hv9rwvwX9tdh13BVT3Mne",
+    "total": 8712.189196000003,
+    "date": "2022-05-07"
+  },
+  "23": {
+    "bal": 194.978789,
+    "length": 71,
+    "address": "rnhbJHjPy1NfwSPJ7WyZhyhS1CJoqtmGyg",
+    "total": 8907.167985000004,
+    "date": "2022-05-07"
+  },
+  "24": {
+    "bal": 102.06734499999999,
+    "length": 71,
+    "address": "rDB8dyp2WTNjzkqUY9FmroezdXtWF29zAk",
+    "total": 9009.235330000003,
+    "date": "2022-05-07"
+  },
+  "25": {
+    "bal": 146.66197499999998,
+    "length": 71,
+    "address": "r9CWxW1tEVnKhjvSMwvwU69bShMxyCHHsG",
+    "total": 9155.897305000002,
+    "date": "2022-05-07"
+  },
+  "26": {
+    "bal": 438.319156,
+    "length": 71,
+    "address": "rnPsMi5FsX3EMFFAz4z99DWnLj9xeFRBxX",
+    "total": 9594.216461000002,
+    "date": "2022-05-07"
+  },
+  "27": {
+    "bal": 123.384679,
+    "length": 71,
+    "address": "rDfD5cYNDBxQ19JmADdm7RbiYhucBdicja",
+    "total": 9717.601140000002,
+    "date": "2022-05-07"
+  },
+  "28": {
+    "bal": 83.11043000000001,
+    "length": 71,
+    "address": "rDAkNkevYdgvpz6hSXcVzDLKvuiCmJF1Z6",
+    "total": 9800.711570000003,
+    "date": "2022-05-07"
+  },
+  "29": {
+    "bal": 138.265494,
+    "length": 71,
+    "address": "rJPfVTy9tiduJ3UzdkdETUTHrXvrSTqkYp",
+    "total": 9938.977064000002,
+    "date": "2022-05-07"
+  },
+  "30": {
+    "bal": 977.5003859999999,
+    "length": 71,
+    "address": "rUgJGra8xGJp9j1MuEjjSj65vSmtpXaLT6",
+    "total": 10916.477450000002,
+    "date": "2022-05-07"
+  },
+  "31": {
+    "bal": 899.1294660000001,
+    "length": 71,
+    "address": "rU8pdWYbz3cEGDTowTjQrsS2hMcn7kCJym",
+    "total": 11815.606916000002,
+    "date": "2022-05-07"
+  },
+  "32": {
+    "bal": 523.02564,
+    "length": 71,
+    "address": "rp1RKssp9Y6YQnpvfcvB3HRgS2XCoKEiu8",
+    "total": 12338.632556000002,
+    "date": "2022-05-07"
+  },
+  "33": {
+    "bal": 372.74402999999995,
+    "length": 71,
+    "address": "rDBMue4urzWRsfoLEEYbcxhNFkDa1bjDc7",
+    "total": 12711.376586000002,
+    "date": "2022-05-07"
+  },
+  "34": {
+    "bal": 648.148897,
+    "length": 71,
+    "address": "rJCCbtdZSpSbcPN2N6tn65RRUXmDcmqjvo",
+    "total": 13359.525483000001,
+    "date": "2022-05-07"
+  },
+  "35": {
+    "bal": 286.682993,
+    "length": 71,
+    "address": "rwpcUQqBNfG5tRWXEy2t13wMV1vGq3mN89",
+    "total": 13646.208476000002,
+    "date": "2022-05-07"
+  },
+  "36": {
+    "bal": 144.075334,
+    "length": 71,
+    "address": "rpuFSBPjUxpMsAaMZr1xEcRrtrSuMfnRvT",
+    "total": 13790.28381,
+    "date": "2022-05-07"
+  },
+  "37": {
+    "bal": 368.79236000000003,
+    "length": 71,
+    "address": "rLDNGw7kQpRXqJzqhtYthBxdnvd9mxqcgb",
+    "total": 14159.07617,
+    "date": "2022-05-07"
+  },
+  "38": {
+    "bal": 474.00564299999996,
+    "length": 71,
+    "address": "rLh1KJVDpGwifTCk5wutaZE5Q76gdvdLfS",
+    "total": 14633.081813,
+    "date": "2022-05-07"
+  },
+  "39": {
+    "bal": 288.49245,
+    "length": 71,
+    "address": "rMBfJP5WMXwsaBoNHuGB9EEHo7axWwweSM",
+    "total": 14921.574263,
+    "date": "2022-05-07"
+  },
+  "40": {
+    "bal": 179.476092,
+    "length": 71,
+    "address": "rKPqnH6xPGMTjzu3ES8k6osekCF71ssDyM",
+    "total": 15101.050355000001,
+    "date": "2022-05-07"
+  },
+  "41": {
+    "bal": 203.27023100000002,
+    "length": 71,
+    "address": "rfG3xPWrd7EuYcuBwFiiW83psX9jGcPWpk",
+    "total": 15304.320586000002,
+    "date": "2022-05-07"
+  },
+  "42": {
+    "bal": 185.07380999999998,
+    "length": 71,
+    "address": "rfp2bmtguqvEi8yg2UHCn8iXw1Ly4NdXcd",
+    "total": 15489.394396000002,
+    "date": "2022-05-07"
+  },
+  "43": {
+    "bal": 577.198047,
+    "length": 71,
+    "address": "rGvnBo5mhzt2nCq4pLGVdPiFvioDw4BWXU",
+    "total": 16066.592443000001,
+    "date": "2022-05-07"
+  },
+  "44": {
+    "bal": 182.440701,
+    "length": 71,
+    "address": "rfEcrYqBoddwhm37QSiq5hS2Q5nPqYqbDN",
+    "total": 16249.033144,
+    "date": "2022-05-07"
+  },
+  "45": {
+    "bal": 282.727702,
+    "length": 71,
+    "address": "rKrK7rT7GFAgwWSZRQBPX7MXksc3tGQrxQ",
+    "total": 16531.760846,
+    "date": "2022-05-07"
+  },
+  "46": {
+    "bal": 189.102845,
+    "length": 71,
+    "address": "ra1gChXBVK1apXBAHYtX8VAbFsrmu3gb3T",
+    "total": 16720.863691000002,
+    "date": "2022-05-07"
+  },
+  "47": {
+    "bal": 596.877181,
+    "length": 71,
+    "address": "r4P98RFRUBnMrAJdxSHRBBMhbJjBBByKEX",
+    "total": 17317.740872000002,
+    "date": "2022-05-07"
+  },
+  "48": {
+    "bal": 174.69052599999998,
+    "length": 71,
+    "address": "rU9hQm8iwJoSxaY91bav93tFF98yfCScyY",
+    "total": 17492.431398,
+    "date": "2022-05-07"
+  },
+  "49": {
+    "bal": 206.70653499999997,
+    "length": 71,
+    "address": "rGGjck9jgZcCj4NBAQBiciTv3Ep88yfyWq",
+    "total": 17699.137933,
+    "date": "2022-05-07"
+  },
+  "50": {
+    "bal": 918.50838,
+    "length": 71,
+    "address": "rJeb356QSWU871S3THSgXqJ3QJ38aSRGMz",
+    "total": 18617.646313,
+    "date": "2022-05-07"
+  },
+  "51": {
+    "bal": 215.862619,
+    "length": 71,
+    "address": "rJAQCY75FMXMwRvgXpnMzxQZEN4kGC3QvS",
+    "total": 18833.508932,
+    "date": "2022-05-07"
+  },
+  "52": {
+    "bal": 208.002248,
+    "length": 71,
+    "address": "rnV2jyNPeKkmQ11Tdn85wbA4eDYEuUXDLv",
+    "total": 19041.51118,
+    "date": "2022-05-07"
+  },
+  "53": {
+    "bal": 249.23737699999998,
+    "length": 71,
+    "address": "rPhDzWZ8myQGnzCo2DCHPYGYLkreNtnR1",
+    "total": 19290.748557000003,
+    "date": "2022-05-07"
+  },
+  "54": {
+    "bal": 213.96583800000002,
+    "length": 71,
+    "address": "rJ5MJjbv2BxS19ZuPv8MKnF9L7ezHbTWn1",
+    "total": 19504.714395000003,
+    "date": "2022-05-07"
+  },
+  "55": {
+    "bal": 224.62986899999999,
+    "length": 71,
+    "address": "rHFmfJDBpjjymwcFKGeYGYuDcQfnfeRqQ2",
+    "total": 19729.344264000003,
+    "date": "2022-05-07"
+  },
+  "56": {
+    "bal": 274.980333,
+    "length": 71,
+    "address": "raAWY9ccVavTtkP18k2tBpa26M4nGgkZbA",
+    "total": 20004.324597000003,
+    "date": "2022-05-07"
+  },
+  "57": {
+    "bal": 220.702829,
+    "length": 71,
+    "address": "rpj78gQnirtok3mF33iNnhF6Ra6mriCbNj",
+    "total": 20225.027426000004,
+    "date": "2022-05-07"
+  },
+  "58": {
+    "bal": 259.271106,
+    "length": 71,
+    "address": "rNVdgurvKHrT6qnYYnwSPXUWrgU4gbw37f",
+    "total": 20484.298532000004,
+    "date": "2022-05-07"
+  },
+  "59": {
+    "bal": 268.339014,
+    "length": 71,
+    "address": "rhZhHwxXmA5ydg88bW7Z4zeAutfWdoYn2j",
+    "total": 20752.637546000005,
+    "date": "2022-05-07"
+  },
+  "60": {
+    "bal": 110.305849,
+    "length": 71,
+    "address": "rNLNuWp67Cex4ic1oEDMcGGbaZMKV6Q7BD",
+    "total": 20862.943395000006,
+    "date": "2022-05-07"
+  },
+  "61": {
+    "bal": 89.06484800000001,
+    "length": 71,
+    "address": "rDBjq5omhqQWSNgihgNJrX8azVvgKydQDH",
+    "total": 20952.008243000007,
+    "date": "2022-05-07"
+  },
+  "62": {
+    "bal": 97.00747899999999,
+    "length": 71,
+    "address": "rNTRUaippmqiJZrfB4k9NkUVqKeY3qrKmn",
+    "total": 21049.015722000007,
+    "date": "2022-05-07"
+  },
+  "63": {
+    "bal": 73.15003999999999,
+    "length": 71,
+    "address": "rKP4bkro8tJwc4Yebmh4t5AYbmi63yQrc6",
+    "total": 21122.165762000008,
+    "date": "2022-05-07"
+  },
+  "64": {
+    "bal": 102.85535999999999,
+    "length": 71,
+    "address": "rMy74pC1WNVnEDy8KFP5FM9tpxJVDorWns",
+    "total": 21225.02112200001,
+    "date": "2022-05-07"
+  },
+  "65": {
+    "bal": 100.18925200000001,
+    "length": 71,
+    "address": "rwPxGp5mCwD3iq19KWziWNgUEiSgLy9NpM",
+    "total": 21325.21037400001,
+    "date": "2022-05-07"
+  },
+  "66": {
+    "bal": 98.10040000000001,
+    "length": 71,
+    "address": "rd74GWTPX9t5oGBAHSc23GgbTmLBS4zMX",
+    "total": 21423.31077400001,
+    "date": "2022-05-07"
+  },
+  "67": {
+    "bal": 76.984171,
+    "length": 71,
+    "address": "rLqS2ijWKbfgR55BnfVCbiP6nL8b41Gxg5",
+    "total": 21500.29494500001,
+    "date": "2022-05-07"
+  },
+  "68": {
+    "bal": 118.738529,
+    "length": 71,
+    "address": "rP4jafzZqKwkFRRcn2wrUWX1Es5Sm8wq6c",
+    "total": 21619.033474000007,
+    "date": "2022-05-07"
+  },
+  "69": {
+    "bal": 121.391008,
+    "length": 71,
+    "address": "rPhgMWDgqGKCD9KgEMotKUeK2kmJdFV6ud",
+    "total": 21740.424482000006,
+    "date": "2022-05-07"
+  },
+  "70": {
+    "bal": 77.99991,
+    "length": 71,
+    "address": "rwjuTBxVMisXt7Bzsq8oFHCS6Ni3de2FvN",
+    "total": 21818.424392000004,
+    "date": "2022-05-07"
+  }
+}
+AVAILABLE----------------------------------------------------------------------------------AVAILABLE

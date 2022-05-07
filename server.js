@@ -95,6 +95,7 @@ var fs = require("fs");
 //     var tot = 0;
 //     for(var x = 0 ; x < orders.length; x++) {
 //         var text = orders[x].orderHistory.totalPrice;
+//         console.log(x, ".) ",text);
 //         var price = text.substr(1, text.length)
 //         tot = tot + parseInt(price);
 //     }
