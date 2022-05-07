@@ -51,7 +51,10 @@ class Position {
         });
         
     }
-
+     /*----------------------------------------------------------------------------------------------------
+     |  @note: Change param if xrp or available                                                           |
+     |                                                                                                    |
+     ----------------------------------------------------------------------------------------------------*/
     getAccountBal(address) {
         return new Promise(function(resolve, reject) {    
             var axios                   = require("axios");    
