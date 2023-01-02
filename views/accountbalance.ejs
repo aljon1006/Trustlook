@@ -16,17 +16,21 @@
                         <tr>
                             <th scope="col">No.</th>
                             <th scope="col">Account Balance</th>
+                            <th scope="col">Account Reserved</th>
                             <th scope="col">Address</th>
                         </tr>
                         <% 
-                            var low_xrp = 0;
-                            var total_bal = 0;
-                            var warning_lvl = 0;
+                            var low_xrp             = 0;
+                            var total_bal           = 0;
+                            var warning_lvl         = 0;
+                            var total_reserved      = 0;
+                            var total_xrp           = 0;
                             for(var x = 0 ; x < data[0].length ; x++) { 
                                 var trunc_num = Math.trunc(data[x].bal);
                                 low_xrp = (trunc_num < 1.99) ? low_xrp + 1 : low_xrp;
                                 warning_lvl = (trunc_num < 5.99) ? warning_lvl + 1 : warning_lvl;
                                 total_bal = total_bal + parseFloat(data[x].bal);
+                                total_reserved = total_reserved + parseFloat(data[x].reserved)
                                 %>
                                 
                                 <tr style="<%= (trunc_num < 1.99) ? 'background-color: red;color: white;' :
@@ -34,16 +38,22 @@
                                 :'background-color: green; color:white;'%>">
                                     <td><%= x+1 %></td>
                                     <td><%= data[x].bal %></td>
+                                    <td><%= data[x].reserved %></td>
                                     <td><%= data[x].address %></td>
                                 </tr>
-                <%        } %>
+                <%        } 
+                
+                          total_xrp = parseFloat(total_bal) + parseFloat(total_reserved)          
+                %>
                 
                     </table>
                 </div>
                 <div class="labels">
                     <p class="notl-lbl"><span class="span-filled">Low XRP: </span>  <%= " " + low_xrp  %></p>
                     <p class="warnlvl-lbl"><span class="span-filled">Warning lvl XRP: </span>  <%= " " + warning_lvl %></p>
-                    <p class="tot-bal"><span class="span-filled">Total balance: </span><%= total_bal.toFixed(2) %></p>
+                    <p class="tot-bal"><span class="span-filled">Total Balance: </span><%= total_bal.toFixed(2) %></p>
+                    <p class="tot-bal"><span class="span-filled">Total Reserved: </span><%= total_reserved.toFixed(2) %></p>
+                    <p class="tot-bal"><span class="span-filled">Total XRP: </span><%= total_xrp.toFixed(2) %></p>
                 </div>
                
             </div>

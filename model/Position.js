@@ -2,11 +2,14 @@ class Position {
     constructor() {
 
     }
+     /*----------------------------------------------------------------------------------------------------
+     |  @description: Get trustline position and total trustline including token holding                  |
+     |                                                                                                    |
+     ----------------------------------------------------------------------------------------------------*/
     getPos(address) {
         return new Promise(function(resolve, reject) {
             var axios                   = require("axios");
             var counter                 = 0;
-            var found                   = false;
             var list                    = {};
             const readXlsxFile          = require('read-excel-file/node');
             var file                    = "assets/addresses.xlsx";
@@ -24,7 +27,6 @@ class Position {
                                         total: res.data.lines.length, bal: res.data.lines[x].balance};
                                     
                                     counter = 0;
-                                    found = true;
                                     break;
                                 }
                                 else {
@@ -33,7 +35,6 @@ class Position {
                                         list[a] = {pos: 0, address: rows[a][0], length: rows.length, 
                                             total: res.data.lines.length, bal: 0};
                                         counter = 0;
-                                        found = false;
                                     }
                                     else {
                                         // console.log("counter", counter, "data", res.data.length)
@@ -57,7 +58,7 @@ class Position {
      ----------------------------------------------------------------------------------------------------*/
     getAccountBal(address) {
         return new Promise(function(resolve, reject) {    
-            var axios                   = require("axios");    
+            var axios                   = require("axios");
             axios.get("https://data.ripple.com/v2/accounts/"+address+"/balances")
             .then((res) => {
                 setTimeout(function() {
@@ -65,7 +66,8 @@ class Position {
                     var reserved = total * 2 + 10;
                     var xrp =  res.data.balances[0].value;
                     var available = xrp - reserved;
-                    resolve(available);
+                    resolve({available: available, reserved: reserved}); 
+                                      //edit this
                 }, 900);
                 
             });
