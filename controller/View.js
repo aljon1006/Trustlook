@@ -36,22 +36,45 @@ class View {
         // const workbook              = new ExcelJS.Workbook();
         var list                    = {};
         var available               = 0;
+        var reserved                = 0;
         var datetime                = new Date();
         var jsonData                = [];
-        var label                   = "AVAILABLE";
+        var label                   = "AVAILABLE";  //AVAILABLE or ALL
+        var count_ret               = 0;
+        var total_all_xrp           = 0;
         readXlsxFile(file).then(async (rows) => {
             for(var x = 0 ; x < rows.length ; x++) {
-                var address = rows[x][0]
-                var xrp = await position.getAccountBal(address);
-                available = available + parseFloat(xrp);
-                // var tempjsonData =  {bal: xrp, length: rows.length, address: address, total: available, 
-                //     date: datetime.toISOString().slice(0,10)};
-                list[x] = {bal: xrp, length: rows.length, address: address, total: available, 
-                    date: datetime.toISOString().slice(0,10)};
-                // jsonData.push(tempjsonData);
-                console.log(available)
+                var address                     = rows[x][0]
+                var xrp                         = await position.getAccountBal(address);
+               
+                if(xrp.reserved != 10 && label != "ALL") {
+                    available = available + parseFloat(xrp.available);
+                    reserved = reserved + parseFloat(xrp.reserved);
+                    // var tempjsonData =  {bal: xrp, length: rows.length, address: address, total: available, 
+                    //     date: datetime.toISOString().slice(0,10)};
+                    list[x] = {bal: xrp.available, length: rows.length, address: address, total: available, 
+                            reserved: xrp.reserved, date: datetime.toISOString().slice(0,10)};
+                    // jsonData.push(tempjsonData);
+                    console.log("Available: ", available, "Reserved: ", xrp.reserved)
+                    count_ret = 0;
+                }
+                else if(label == "ALL") {
+                    available = available + parseFloat(xrp.available);
+                    // var tempjsonData =  {bal: xrp, length: rows.length, address: address, total: available, 
+                    //     date: datetime.toISOString().slice(0,10)};
+                    list[x] = {bal: xrp.available, length: rows.length, address: address, total: available, 
+                            reserved: xrp.reserved, date: datetime.toISOString().slice(0,10)};
+                    // jsonData.push(tempjsonData);
+                    console.log("Available: ", available, "Reserved: ", xrp.reserved)
+                }
+                else {
+                    x--;
+                    count_ret++;
+                    console.log("Available: ", available, "Reserved: ", xrp.reserved, "Retry Count: ", count_ret)
+                }
+               
             }
-            
+            total_all_xrp = parseFloat(available) + parseFloat(reserved);
             // workbook.xlsx.readFile(available_file)
             // .then(function() {
             //     var worksheet = workbook.getWorksheet(1);
@@ -64,7 +87,15 @@ class View {
             var jsonContent = JSON.parse(JSON.stringify(list));
             
             
-            fs.appendFile(available_file, available.toFixed(2)+" --- "+datetime.toISOString().slice(0,10)+"\n", err =>{
+            fs.appendFile(available_file
+                , available.toFixed(2)+" --- "+datetime.toISOString().slice(0,10)+"\n", err =>{
+                if(err){
+                    console.log(err)
+                    return;
+                }
+            });
+            fs.appendFile(allxrp_file
+                , total_all_xrp.toFixed(2)+" --- "+datetime.toISOString().slice(0,10)+"\n", err =>{
                 if(err){
                     console.log(err)
                     return;
@@ -81,6 +112,7 @@ class View {
                 }
             });
             res.render("accountbalance", {data: list});
+            
            
         });
         
