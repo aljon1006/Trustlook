@@ -1,0 +1,40 @@
+Jan 26
+Total exchanges:  8619.638067841292 Total xrp:  38700.00340799999
+PHP:  22.44
+Final result:  1061852.7547178783
+
+
+Jan 28
+Total exchanges:  8994.09973593903 Total xrp:  38699.22201299999
+PHP:  22.48
+Final result:  1072145.8729161492
+
+Total exchanges:  9216.359991618852 Total xrp:  38598.128867999985
+PHP:  22.48
+Final result:  1074869.7095642316
+
+
+Jan 29
+Total exchanges:  8125.757922574342 Total xrp:  40136.142970999994
+PHP:  22.47
+Final result:  1084444.9130786152
+
+Total exchanges:  9610.858601449798 Total xrp:  38661.85644399998
+PHP:  22.44
+Final result:  1083239.7256198933
+
+Total exchanges:  8670.501141697709 Total xrp:  38700.48421499998
+PHP:  22.47
+Final result:  1064426.040964997
+
+
+Jan 30
+Total exchanges:  8946.498304194412 Total xrp:  38700.48418499999
+PHP:  22.39
+Final result:  1066815.9379330627
+
+
+Jan 31
+Total exchanges:  8942.40300886274 Total xrp:  38700.48416999998
+PHP:  21.53
+Final result:  1025751.3609609144

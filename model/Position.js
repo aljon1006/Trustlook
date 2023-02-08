@@ -1,4 +1,7 @@
+const { default: axios } = require("axios");
+let VALUE_1000 = 1000;
 class Position {
+    
     constructor() {
 
     }
@@ -56,23 +59,69 @@ class Position {
      |  @note: Change param if xrp or available                                                           |
      |                                                                                                    |
      ----------------------------------------------------------------------------------------------------*/
-    getAccountBal(address) {
-        return new Promise(function(resolve, reject) {    
-            var axios                   = require("axios");
-            axios.get("https://data.ripple.com/v2/accounts/"+address+"/balances")
-            .then((res) => {
-                setTimeout(function() {
-                    var total = res.data.balances.length - 1;
-                    var reserved = total * 2 + 10;
-                    var xrp =  res.data.balances[0].value;
-                    var available = xrp - reserved;
-                    resolve({available: available, reserved: reserved}); 
-                                      //edit this
-                }, 900);
+     async getAccountBal(address) {
+        let retries = VALUE_1000;
+        let retryDelay = 60 * 100;
+        let total = 0;
+        let reserved =0;
+        let available = 0;
+        let xrp = 0;
+        let data = {};
+        // return new Promise(function(resolve, reject) {    
+        //     var axios                   = require("axios");
+        //     axios.get("https://data.ripple.com/v2/accounts/"+address+"/balances")
+        //     .then((res) => {
+        //         setTimeout(function() {
+        //             var total = res.data.balances.length - 1;
+        //             var reserved = total * 2 + 10;
+        //             var xrp =  res.data.balances[0].value;
+        //             var available = xrp - reserved;
+        //             resolve({available: available, reserved: reserved}); 
+        //                               //edit this
+        //         }, 900);
                 
-            });
+        //     });
         
-        });
+        // });
+        while (retries > 0) {
+
+            try {
+                const response = await axios.get("https://data.ripple.com/v2/accounts/"+address+"/balances");
+                total = response.data.balances.length - 1;
+                reserved = total * 2 + 10;
+                xrp = response.data.balances[0].value;
+                available = xrp - reserved;
+                data = {available: available, reserved: reserved};
+                break;
+            } catch (err) {
+                if (err.response && err.response.status === 429) {
+                    console.log(`Retrying in ${retryDelay}ms, attempts remaining: ${retries}`);
+          
+                    //Delay every iteration
+                    await new Promise(resolve => setTimeout(resolve, retryDelay));
+                    retries--;
+                  } 
+                  else if (err.code === 'ENOTFOUND' || err.code === 'ECONNREFUSED' || err.code === 'ECONNRESET') {
+                      console.log(`Error connecting to the server. Retrying in ${retryDelay}ms, attempts remaining: ${retries}`);
+          
+                      //Delay every iteration
+                      await new Promise(resolve => setTimeout(resolve, retryDelay));
+                      retries--;
+                  }
+                  else if(err.code === 'ETIMEDOUT') {
+                    console.log(`Error connecting to the server(ETIMEDOUT). Retrying in ${retryDelay}ms, attempts remaining: ${retries}`);
+                    await new Promise(resolve => setTimeout(resolve, retryDelay));
+                    retries--;
+                } 
+                  else {
+                    console.log(`Error: ${err.message}`);
+                    break;
+                  }
+                
+            }
+        }
+        return data;
+
     }
 
 }

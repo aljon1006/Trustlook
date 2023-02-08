@@ -1,0 +1,10 @@
+Feb 1
+Total exchanges:  8834.292938851422 Total xrp:  38746.78116799999
+PHP:  22.08
+Final result:  1050590.116279279
+
+
+Feb 2
+Total exchanges:  8702.237706138647 Total xrp:  38746.78116799999
+PHP:  22.53
+Final result:  1069026.3952343436
