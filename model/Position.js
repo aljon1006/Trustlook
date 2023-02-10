@@ -101,18 +101,14 @@ class Position {
                     await new Promise(resolve => setTimeout(resolve, retryDelay));
                     retries--;
                   } 
-                  else if (err.code === 'ENOTFOUND' || err.code === 'ECONNREFUSED' || err.code === 'ECONNRESET') {
-                      console.log(`Error connecting to the server. Retrying in ${retryDelay}ms, attempts remaining: ${retries}`);
+                  else if (err.code === 'ENOTFOUND' || err.code === 'ECONNREFUSED' || err.code === 'ECONNRESET'
+                                            || err.code === 'ETIMEDOUT' || err.code === 'ECONNABORTED') {
+                      console.log(`Error connecting to the server${err.code}. Retrying in ${retryDelay}ms, attempts remaining: ${retries}`);
           
                       //Delay every iteration
                       await new Promise(resolve => setTimeout(resolve, retryDelay));
                       retries--;
                   }
-                  else if(err.code === 'ETIMEDOUT') {
-                    console.log(`Error connecting to the server(ETIMEDOUT). Retrying in ${retryDelay}ms, attempts remaining: ${retries}`);
-                    await new Promise(resolve => setTimeout(resolve, retryDelay));
-                    retries--;
-                } 
                   else {
                     console.log(`Error: ${err.message}`);
                     break;
