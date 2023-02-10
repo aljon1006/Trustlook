@@ -70,3 +70,17 @@ Total XRP: 47227.37529466547
 Final result: 1043252.7202591603
 
 
+2023-02-09
+Total exchanges: 8436.53 Total xrp reserved + available: 38746.78
+PHP: 21.88
+Total XRP: 47183.31106715399
+Final result: 1032370.8461493292
+
+
+2023-02-10
+Total exchanges: 8497.54 Total xrp reserved + available: 38746.78
+PHP: 21.03
+Total XRP: 47244.31446915581
+Final result: 993547.9332863467
+
+
