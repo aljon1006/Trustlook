@@ -84,3 +84,87 @@ Total XRP: 47244.31446915581
 Final result: 993547.9332863467
 
 
+2023-02-11
+Total exchanges: 8599.77 Total xrp reserved + available: 38746.78
+PHP: 20.9
+Total XRP: 47346.54875925061
+Final result: 989542.8690683377
+
+
+2023-02-11
+Total exchanges: 8575.65 Total xrp reserved + available: 38746.78
+PHP: 20.92
+Total XRP: 47322.42253428046
+Final result: 989985.0794171472
+
+
+2023-02-11
+Total exchanges: 4705.00 Total xrp reserved + available: 11649.54
+PHP: 20.86
+Total XRP: 16354.537107787099
+Final result: 341155.64406843885
+
+
+2023-02-11
+Total exchanges: 4705.05 Total xrp reserved + available: 11649.54
+PHP: 20.86
+Total XRP: 16354.59185515482
+Final result: 341156.7860985295
+
+
+2023-02-11
+Total exchanges: 4705.05 Total xrp reserved + available: 11649.54
+PHP: 20.86
+Total XRP: 16354.59185515482
+Final result: 341156.7860985295
+
+
+2023-02-11
+Total exchanges: 4705.05 Total xrp reserved + available: 11649.54
+PHP: 20.86
+Total XRP: 16354.59185515482
+Final result: 341156.7860985295
+
+
+2023-02-11
+Total exchanges: 4705.01 Total xrp reserved + available: 11649.54
+PHP: 20.86
+Total XRP: 16354.555172539975
+Final result: 341156.0208991839
+
+
+2023-02-11
+Total exchanges: 4704.99 Total xrp reserved + available: 11649.54
+PHP: 20.86
+Total XRP: 16354.529816161263
+Final result: 341155.4919651239
+
+
+2023-02-11
+Total exchanges: 4704.99 Total xrp reserved + available: 11649.54
+PHP: 20.86
+Total XRP: 16354.529816161263
+Final result: 341155.4919651239
+
+
+2023-02-11
+Total exchanges: 4705.04 Total xrp reserved + available: 11649.54
+PHP: 20.86
+Total XRP: 16354.581612942275
+Final result: 341156.57244597585
+
+
+2023-02-11
+Total exchanges: 4705.04 Total xrp reserved + available: 11649.54
+PHP: 20.86
+Total XRP: 16354.581612942275
+Final result: 341156.57244597585
+
+
+2023-02-11
+Total exchanges: 4705.04 Total xrp reserved + available: 11649.54
+PHP: 20.84
+Total XRP: 16354.581612942275
+Final result: 340829.480813717
+
+
