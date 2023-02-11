@@ -279,7 +279,7 @@ function compareTokenPrice() {
                             }
                         }
                     }
-                    writeFinalReport(object1, file + "1.txt", data, token_compare_file)
+                    writeFinalReport(object2, file + "1.txt", data, token_compare_file)
                     clearFile(file + "1.txt")
                     clearFile(file + "2.txt")
                 }
@@ -296,7 +296,16 @@ function compareTokenPrice() {
 */
 
 function writeFinalReport(dataObj, fileSwitch, dataObjTokenCompare, fileTokenCompare) {
-    var jsonContent1 = JSON.parse(JSON.stringify(dataObj));
+    let objToSwitch = {}
+    let flag = "1";
+    for(let key in dataObj) {
+        let tempObj = {}
+        tempObj[key] = dataObj[key][key];
+        tempObj[flag] = flag;
+        objToSwitch[key] = tempObj;
+    }
+
+    let jsonContent1 = JSON.parse(JSON.stringify(objToSwitch));
     fs.appendFile(fileSwitch, 
     JSON.stringify(jsonContent1, null, 2), 
     'utf8', err =>{
@@ -306,8 +315,10 @@ function writeFinalReport(dataObj, fileSwitch, dataObjTokenCompare, fileTokenCom
         }
     });
     var jsonContent2 = JSON.parse(JSON.stringify(dataObjTokenCompare));
-    fs.appendFile(fileTokenCompare, 
-    JSON.stringify(jsonContent2, null, 2), 
+    fs.appendFile(fileTokenCompare,
+        "---------------------------------------------------------------------------------- " + 
+    JSON.stringify(jsonContent2 , null, 2) +
+        "\n ---------------------------------------------------------------------------------- \n\n\n\n" , 
     'utf8', err =>{
         if(err){
             console.log(err)
@@ -323,7 +334,8 @@ function clearFile(file) {
       });
 }
 
-compareTokenPrice()
+compareTokenPrice
+
 checkEmpty("assets/token_price1.txt", function(result) {
     accountWorthOnOff = prompt("Want to use account worth? Y/N: ")
     if (accountWorthOnOff.toLowerCase() === 'y') {
