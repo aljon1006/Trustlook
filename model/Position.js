@@ -94,7 +94,7 @@ class Position {
                 data = {available: available, reserved: reserved};
                 break;
             } catch (err) {
-                if (err.response && err.response.status === 429) {
+                if (err.response && (err.response.status === 429 || err.response.status === 500)) {
                     console.log(`Retrying in ${retryDelay}ms, attempts remaining: ${retries}`);
           
                     //Delay every iteration

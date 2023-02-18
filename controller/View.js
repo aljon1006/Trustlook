@@ -46,8 +46,8 @@ class View {
             for(var x = 0 ; x < rows.length ; x++) {
                 var address                     = rows[x][0]
                 var xrp                         = await position.getAccountBal(address);
-               
-                if(xrp.reserved != 10 && label != "ALL") {
+                // if(xrp.reserved != 10 && label != "ALL") {
+                if (label != "ALL") {
                     available = available + parseFloat(xrp.available);
                     reserved = reserved + parseFloat(xrp.reserved);
                     // var tempjsonData =  {bal: xrp, length: rows.length, address: address, total: available, 
@@ -58,20 +58,20 @@ class View {
                     console.log("Available: ", available, "Reserved: ", xrp.reserved)
                     count_ret = 0;
                 }
-                else if(label == "ALL") {
-                    available = available + parseFloat(xrp.available);
-                    // var tempjsonData =  {bal: xrp, length: rows.length, address: address, total: available, 
-                    //     date: datetime.toISOString().slice(0,10)};
-                    list[x] = {bal: xrp.available, length: rows.length, address: address, total: available, 
-                            reserved: xrp.reserved, date: datetime.toISOString().slice(0,10)};
-                    // jsonData.push(tempjsonData);
-                    console.log("Available: ", available, "Reserved: ", xrp.reserved)
-                }
-                else {
-                    x--;
-                    count_ret++;
-                    console.log("Available: ", available, "Reserved: ", xrp.reserved, "Retry Count: ", count_ret)
-                }
+                // else if(label == "ALL") {
+                //     available = available + parseFloat(xrp.available);
+                //     // var tempjsonData =  {bal: xrp, length: rows.length, address: address, total: available, 
+                //     //     date: datetime.toISOString().slice(0,10)};
+                //     list[x] = {bal: xrp.available, length: rows.length, address: address, total: available, 
+                //             reserved: xrp.reserved, date: datetime.toISOString().slice(0,10)};
+                //     // jsonData.push(tempjsonData);
+                //     console.log("Available: ", available, "Reserved: ", xrp.reserved)
+                // }
+                // else {
+                //     // x--;
+                //     // count_ret++;
+                //     console.log("Available: ", available, "Reserved: ", xrp.reserved, "Retry Count: ", count_ret)
+                // }
                
             }
             total_all_xrp = parseFloat(available) + parseFloat(reserved);
