@@ -79,13 +79,14 @@ async function get_data (fileEmptyRes) {
                     result = res.data.balances;
                     break;
                 } catch (err) {
-                    if (err.response && err.response.status === 429) {
+                    if (err.response && (err.response.status === 429 || err.response.status === 500 )) {
                         console.log(`Retrying for account cause rate limit ${rows[a][0]} ${retryDelay}ms, attempts remaining: ${retries}`);
                         await new Promise(resolve => setTimeout(resolve, retryDelay));
                         retries--;
                     }
                     else if(err.code === 'ENOTFOUND' || err.code === 'ECONNREFUSED' || err.code === 'ECONNRESET'
-                                 || err.code === 'ETIMEDOUT' || err.code === 'ECONNABORTED') {
+                                 || err.code === 'ETIMEDOUT' || err.code === 'ECONNABORTED'
+                                 || err.status === 500) {
                         console.log(`Error connecting to the server${err.code}. Retrying in ${retryDelay}ms, attempts remaining: ${retries}`);
                         await new Promise(resolve => setTimeout(resolve, retryDelay));
                         retries--;
@@ -206,7 +207,7 @@ async function rate(currency, issuer) {
 
         break;
       } catch (err) {
-        if (err.response && err.response.status === 429) {
+        if (err.response && (err.response.status === 429 || err.response.status === 500 )) {
           console.log(`Retrying in ${retryDelay}ms, attempts remaining: ${retries}`);
 
           //Delay every iteration
@@ -214,7 +215,8 @@ async function rate(currency, issuer) {
           retries--;
         } 
         else if(err.code === 'ENOTFOUND' || err.code === 'ECONNREFUSED' || err.code === 'ECONNRESET'
-                                 || err.code === 'ETIMEDOUT' || err.code === 'ECONNABORTED') {
+                                 || err.code === 'ETIMEDOUT' || err.code === 'ECONNABORTED' 
+                                 || err.status === 500) {
             console.log(`Error connecting to the server${err.code}. Retrying in ${retryDelay}ms, attempts remaining: ${retries}`);
             await new Promise(resolve => setTimeout(resolve, retryDelay));
             retries--;
