@@ -79,7 +79,7 @@ async function get_data (fileEmptyRes) {
                     result = res.data.balances;
                     break;
                 } catch (err) {
-                    if (err.response && (err.response.status === 429 || err.response.status === 500 )) {
+                    if (err.response && (err.response.status === 429 || err.response.status === 500 || err.response.status === 400)) {
                         console.log(`Retrying for account cause rate limit ${rows[a][0]} ${retryDelay}ms, attempts remaining: ${retries}`);
                         await new Promise(resolve => setTimeout(resolve, retryDelay));
                         retries--;
@@ -142,17 +142,31 @@ async function get_data (fileEmptyRes) {
         var convert_php = parseFloat(res_convert_php.data.ripple.php);
         finalRes = total * convert_php;
         
-        /* Write result into txt file */
-        fs.appendFile(accountWorthFile
-            ,datetime.toISOString().slice(0,10)+"\n" + "Total exchanges: " + totExchange.toFixed(2) +
+        /* Load account worth */
+        fs.readFile(accountWorthFile, function(err, data) {
+            if(err) {
+                console.log(err)
+                throw err;
+            }
+            const newData = datetime.toISOString().slice(0,10)+"\n" + "Total exchanges: " + totExchange.toFixed(2) +
             " Total xrp reserved + available: "+ total_xrp.toFixed(2) + "\n" +  "PHP: " + convert_php + "\n" +
             "Total XRP: " + total + "\n" +
-            "Final result: "+ finalRes + "\n\n\n", err =>{
-            if(err){
-                console.log(err)
-                return;
-            }
-        });
+            "Final result: "+ finalRes + "\n\n\n";
+            
+            const fileData = data.toString();
+            const updatedData = newData + fileData;
+
+            /* Write result into txt file */
+            fs.writeFileSync(accountWorthFile
+                ,updatedData, err =>{
+                if(err){
+                    console.log(err)
+                    return;
+                }
+            });
+            
+        })
+        
         var jsonContent = JSON.parse(JSON.stringify(currencyObj));
         tokenPriceFIle = tokenPriceFIle + tagForFile + ".txt";
         fs.appendFile(tokenPriceFIle, 
@@ -207,7 +221,7 @@ async function rate(currency, issuer) {
 
         break;
       } catch (err) {
-        if (err.response && (err.response.status === 429 || err.response.status === 500 )) {
+        if (err.response && (err.response.status === 429 || err.response.status === 500 || err.response.status === 400)) {
           console.log(`Retrying in ${retryDelay}ms, attempts remaining: ${retries}`);
 
           //Delay every iteration

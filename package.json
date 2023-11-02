@@ -1,4 +1,12 @@
 {
+  "name": "server",
+  "version": "1.2.1",
+  "description": "XRPL tools",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "test": "echo \"Error: no specified\"&& exit 1"
+  },
   "dependencies": {
     "async-retry": "^1.3.3",
     "axios": "^0.24.0",
