@@ -38,7 +38,37 @@ const prompt                = require('prompt-sync')();
 // })
 
 
-// account worth
+/* Account Worth */
+
+//Get php rate using livecoinwatch api
+async function getPhpRate() {
+    const url = 'https://api.livecoinwatch.com/coins/single';
+    const apiKey = 'ac73f434-dcd0-449d-a1f9-ed3302dd832b';
+
+    const requestData = {
+        currency: 'PHP',
+        code: 'XRP',
+        meta: true,
+    };
+
+    try {
+        const response = await axios.post(url, requestData, {
+            headers: {
+                'Content-Type': 'application/json',
+                'x-api-key': apiKey,
+            },
+        });
+
+        // Return the rate from the response data
+        return response.data.rate;
+    } catch (error) {
+        // Handle errors
+        console.error('Error:', error.message);
+        throw error;
+    }
+}
+
+
 async function get_data (fileEmptyRes) {
     const readXlsxFile          = require('read-excel-file/node');
     var file                    = "assets/addresses.xlsx";
@@ -138,8 +168,10 @@ async function get_data (fileEmptyRes) {
         console.log("Total exchanges: ", total, "Total xrp reserved + available: ", total_xrp)
         totExchange = total;
         total = total + total_xrp;
-        var res_convert_php =  await axios.get("http://api.coingecko.com/api/v3/simple/price?ids=ripple&vs_currencies=php");
-        var convert_php = parseFloat(res_convert_php.data.ripple.php);
+        // var res_convert_php =  await axios.get("http://api.coingecko.com/api/v3/simple/price?ids=ripple&vs_currencies=php");
+        let res_convert_php = await getPhpRate();
+        
+        let convert_php = parseFloat(res_convert_php);
         finalRes = total * convert_php;
         
         /* Load account worth */
