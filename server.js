@@ -43,7 +43,7 @@ const prompt                = require('prompt-sync')();
 //Get php rate using livecoinwatch api
 async function getPhpRate() {
     const url = 'https://api.livecoinwatch.com/coins/single';
-    const apiKey = 'ac73f434-dcd0-449d-a1f9-ed3302dd832b';
+    const apiKey = '52bc17ea-7a0d-416c-b1dd-db9dd5fc2c5c';
 
     const requestData = {
         currency: 'PHP',
@@ -104,9 +104,11 @@ async function get_data (fileEmptyRes) {
             //TODO: ETIMEDOUT
             while(retries > 0) {
                 try {
-                    var url = 'http://data.ripple.com/v2/accounts/'+rows[a][0]+'/balances';
+                    // var url = 'http://data.ripple.com/v2/accounts/'+rows[a][0]+'/balances';
+                    var url = "https://api.xrpscan.com/api/v1/account/"+rows[a][0]+"/assets";
                     let res = await axios.get(url);
-                    result = res.data.balances;
+                    // console.log(res)
+                    result = res.data;
                     break;
                 } catch (err) {
                     if (err.response && (err.response.status === 429 || err.response.status === 500 || err.response.status === 400)) {
@@ -138,7 +140,8 @@ async function get_data (fileEmptyRes) {
                 value = parseFloat(result[x].value);
                 rate_ = await rate(currency, issuer);
                 rate_ = parseFloat(rate_);
-                exchange_rates = value/rate_;
+                // exchange_rates = value/rate_;
+                exchange_rates = value*rate_;
                 exchange_rates = (isNaN(exchange_rates) || rate_.toFixed(6) == 0.000000) ? 0 : exchange_rates;
                 exchange_rates = parseFloat(exchange_rates);
                 total = total + exchange_rates;
@@ -156,8 +159,10 @@ async function get_data (fileEmptyRes) {
                 }
                 console.log("issuer", currency,"rate",rate_,"value", value, "exchange", "=", exchange_rates.toFixed(2), "total: ", total);
             }
-            
-            total_xrp = total_xrp + parseFloat(result[0].value);
+            var urlXrp = "https://api.xrpscan.com/api/v1/account/"+rows[a][0];
+            let resXrp = await axios.get(urlXrp);
+            total_xrp = total_xrp + parseFloat(resXrp.data.xrpBalance);
+            // console.log("result[0].value ", result[0].value)
             console.log(`Total XRP: ${total_xrp}`)
             console.log("DONEEE NEXT PLEASE.....")
             retries = VALUE_1000;
@@ -218,6 +223,7 @@ async function get_data (fileEmptyRes) {
 }
 
 async function rate(currency, issuer) {
+    // console.log("currency ", currency, "issuer ", issuer)
     let rate;
     let retries = VALUE_1000;
     let retryDelay = 60 * 100;
@@ -227,8 +233,9 @@ async function rate(currency, issuer) {
     while (retries > 0) {
       try {
         // await new Promise(resolve => setTimeout(resolve, fetchDelay));
-        const response = await axios(`http://data.ripple.com/v2/exchange_rates/XRP/${currency}+${issuer}`);
-
+        // const response = await axios(`http://data.ripple.com/v2/exchange_rates/XRP/${currency}+${issuer}`);
+        const response = await axios("https://api.onthedex.live/public/v1/ticker/"+currency+"." +issuer);
+        
 
         /* FOUND BUG  START */
         /* Get the remaining rate limit in headers  
@@ -247,7 +254,17 @@ async function rate(currency, issuer) {
         //     retries--;
         //   } else {
             // Do something with the response
-        rate = response.data.rate;
+        // console.log("response.data.pairs ", response.data.pairs)
+        for (let index = 0; index < response.data.pairs.length; index++) {
+            if (response.data.pairs[index].quote == "XRP") {
+                rate = response.data.pairs[index].price_hi;
+                // console.log(index," ",response.data.pairs[index].quote)
+                // console.log("rate ", rate)
+                break;
+            } 
+
+        }
+
         //   }
         /* FOUND BUG  END*/
 
