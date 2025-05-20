@@ -15,61 +15,68 @@ var server                  = app.listen(1337, ["192.168.100.3" || "localhost"],
 });
 
 var axios                   = require("axios");
+const https                 = require('https');
+const agent = new https.Agent({ keepAlive: true });
+const axiosInstance = axios.create({ httpsAgent: agent });
+
 const retry                 = require('async-retry'); 
 const { all }               = require("./routes");
 var fs                      = require("fs");
-var accountWorthOnOff       = 'N';    // N off Y on
+var accountWorthOnOff       = 'N';    // N: off, Y: on
 const prompt                = require('prompt-sync')();
-
-// url = 'http://data.ripple.com/v2/accounts/rGfz8KHtNVTEpYN1jnPCmfGhe4k8zmR4ew/balances';
-// axios.get(url).then(res => {
-//     for(var x = 1 ; x < res.data.balances.length ; x++) {
-//         var currency = res.data.balances[x].currency;
-//         var issuer = res.data.balances[x].counterparty;
-//         var value = res.data.balances[x].value;
-//         // console.log("currency", currency, issuer)
-//         axios("http://data.ripple.com/v2/exchange_rates/XRP/"+currency+"+"+issuer)
-//             .then(result => {
-//                 console.log(result);
-//             })
-        
-//     }
-    
-// })
 
 
 /* Account Worth */
 
 //Get php rate using livecoinwatch api
+
 async function getPhpRate() {
     const url = 'https://api.livecoinwatch.com/coins/single';
     const apiKey = 'ac73f434-dcd0-449d-a1f9-ed3302dd832b';
-
+    let retries                 = VALUE_1000;
+    let retryDelay              = 60 * 500;
     const requestData = {
         currency: 'PHP',
         code: 'XRP',
         meta: true,
     };
-
-    try {
-        const response = await axios.post(url, requestData, {
-            headers: {
-                'Content-Type': 'application/json',
-                'x-api-key': apiKey,
-            },
-        });
-
-        // Return the rate from the response data
-        return response.data.rate;
-    } catch (error) {
-        // Handle errors
-        console.error('Error:', error.message);
-        throw error;
+    while (retries > 0) {
+        try {
+            const response = await axiosInstance.post(url, requestData, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-api-key': apiKey,
+                },
+            });
+    
+            // Return the rate from the response data
+            return response.data.rate;
+        } catch (err) {
+            if (err.response && (err.response.status === 429 || err.response.status === 500 || err.response.status === 400 || err.response.status === 502 || err.response.status === 504)) {
+                console.log(`Retrying for account cause rate limit ${err} ${retryDelay}ms, attempts remaining: ${retries}`);
+                await new Promise(resolve => setTimeout(resolve, retryDelay));
+                retries--;
+            }
+            else if(err.code === 'ENOTFOUND' || err.code === 'ECONNREFUSED' || err.code === 'ECONNRESET'
+                         || err.code === 'ETIMEDOUT' || err.code === 'ECONNABORTED'
+                         || err.status === 500) {
+                console.log(`Error connecting to the server${err.code}. Retrying in ${retryDelay}ms, attempts remaining: ${retries}`);
+                await new Promise(resolve => setTimeout(resolve, retryDelay));
+                retries--;
+            }
+            else {
+                console.log(`Error: ${err.message}`)
+                await new Promise(resolve => setTimeout(resolve, retryDelay));
+                retries--;
+            }
+        }
     }
+    
 }
 
 
 async function get_data (fileEmptyRes) {
+    console.log('\x1b[32m%s\x1b[0m', "CHECKING ACCOUNT WORTH.......")
     const readXlsxFile          = require('read-excel-file/node');
     var file                    = "assets/addresses.xlsx";
     let result;
@@ -90,7 +97,7 @@ async function get_data (fileEmptyRes) {
     var exchange_rates          = 0;
     let currencyObj             = {};
     let tagForFile              = 0;
-
+    let resXrp                  = 0;
     //check if file is empty
     tagForFile = (fileEmptyRes == true) ? 1 : 2;
     
@@ -104,9 +111,11 @@ async function get_data (fileEmptyRes) {
             //TODO: ETIMEDOUT
             while(retries > 0) {
                 try {
-                    var url = 'http://data.ripple.com/v2/accounts/'+rows[a][0]+'/balances';
-                    let res = await axios.get(url);
-                    result = res.data.balances;
+                    // var url = 'http://data.ripple.com/v2/accounts/'+rows[a][0]+'/balances';
+                    var url = "https://api.xrpscan.com/api/v1/account/"+rows[a][0]+"/assets";
+                    let res = await axiosInstance.get(url);
+                        // console.log(res)
+                    result = res.data;
                     break;
                 } catch (err) {
                     if (err.response && (err.response.status === 429 || err.response.status === 500 || err.response.status === 400)) {
@@ -123,6 +132,8 @@ async function get_data (fileEmptyRes) {
                     }
                     else {
                         console.log(`Error: ${err.message}`)
+                        await new Promise(resolve => setTimeout(resolve, retryDelay));
+                        retries--;
                     }
                 }
             }
@@ -137,10 +148,17 @@ async function get_data (fileEmptyRes) {
                 issuer = result[x].counterparty;
                 value = parseFloat(result[x].value);
                 rate_ = await rate(currency, issuer);
-                rate_ = parseFloat(rate_);
-                exchange_rates = value/rate_;
-                exchange_rates = (isNaN(exchange_rates) || rate_.toFixed(6) == 0.000000) ? 0 : exchange_rates;
+                // rate_ = parseFloat(rate_);
+                // exchange_rates = value/rate_;
+                exchange_rates = value*rate_;
+                console.log('\x1b[32m%s\x1b[0m', "exchange_rates: " , exchange_rates)
+                /*Commented out for debugging */
+                // exchange_rates = (isNaN(exchange_rates) || rate_.toFixed(6) == 0.000000) ? 0 : exchange_rates; 
+                /*Commented out for debugging */
+                exchange_rates = (isNaN(exchange_rates)) ? 0 : exchange_rates;
+                // console.log('\x1b[32m%s\x1b[0m', "after first exchange_rates: " , exchange_rates)
                 exchange_rates = parseFloat(exchange_rates);
+                // console.log('\x1b[32m%s\x1b[0m', "after second exchange_rates: " , exchange_rates)
                 total = total + exchange_rates;
                 if (currencyObj !== null && currency in currencyObj) {
                     tempExchangeRate = parseFloat(currencyObj[currency][currency]);
@@ -153,21 +171,53 @@ async function get_data (fileEmptyRes) {
                     tempCurrencyObjMainData[currency] = exchange_rates;
                     tempCurrencyObjMainData[tagForFile] = tagForFile;
                     currencyObj[currency] = tempCurrencyObjMainData;
+                    // console.log("DEBUGGING[currencyObj[currency]]: ", currencyObj[currency])
                 }
                 console.log("issuer", currency,"rate",rate_,"value", value, "exchange", "=", exchange_rates.toFixed(2), "total: ", total);
             }
-            
-            total_xrp = total_xrp + parseFloat(result[0].value);
+            while(retries > 0) {
+                try {
+                    var urlXrp = "https://api.xrpscan.com/api/v1/account/"+rows[a][0];
+                    let res = await axiosInstance.get(urlXrp);
+                    resXrp = res.data.xrpBalance;
+                    break;
+                    
+                } catch (err) {
+                    if (err.response && (err.response.status === 429 || err.response.status === 500 || err.response.status === 400)) {
+                        console.log(`Retrying for account cause rate limit ${rows[a][0]} ${retryDelay}ms, attempts remaining: ${retries}`);
+                        await new Promise(resolve => setTimeout(resolve, retryDelay));
+                        retries--;
+                    }
+                    else if(err.code === 'ENOTFOUND' || err.code === 'ECONNREFUSED' || err.code === 'ECONNRESET'
+                                 || err.code === 'ETIMEDOUT' || err.code === 'ECONNABORTED'
+                                 || err.status === 500) {
+                        console.log(`Error connecting to the server${err.code}. Retrying in ${retryDelay}ms, attempts remaining: ${retries}`);
+                        await new Promise(resolve => setTimeout(resolve, retryDelay));
+                        retries--;
+                    }
+                    else {
+                        console.log(`Error: ${err.message}`)
+                        await new Promise(resolve => setTimeout(resolve, retryDelay));
+                        retries--;
+                    }
+                }
+
+            }
+           
+            total_xrp = total_xrp + parseFloat(resXrp);
+            // console.log("result[0].value ", result[0].value)
             console.log(`Total XRP: ${total_xrp}`)
             console.log("DONEEE NEXT PLEASE.....")
             retries = VALUE_1000;
 
             //Delay 3500ms every iteration
-            await new Promise(resolve => setTimeout(resolve, 3500));
+            await new Promise(resolve => setTimeout(resolve, 6000));
         }
         console.log("Total exchanges: ", total, "Total xrp reserved + available: ", total_xrp)
         totExchange = total;
         total = total + total_xrp;
+        //temp
+        total = total - 4000
         // var res_convert_php =  await axios.get("http://api.coingecko.com/api/v3/simple/price?ids=ripple&vs_currencies=php");
         let res_convert_php = await getPhpRate();
         
@@ -218,17 +268,42 @@ async function get_data (fileEmptyRes) {
 }
 
 async function rate(currency, issuer) {
-    let rate;
+    // console.log("currency ", currency, "issuer ", issuer)
+    let rate = 0;
     let retries = VALUE_1000;
+    let delayForFetchingPrice = 1500;
     let retryDelay = 60 * 100;
     let fetchDelay = 0;
-
+    let fakePrice = 10000;
     /* Retry if encountered rate limit or internet connection issues */
     while (retries > 0) {
       try {
+        /* XRPL META*/
+        const response = await axiosInstance("https://data.xrplf.org/v1/iou/exchange_rates/"+issuer+"_"+currency+"/XRP");
+        // console.log('\x1b[32m%s\x1b[0m', "Price: " , response.data.rate)
+        rate = response.data.rate;
+        if (rate !== undefined) {
+            rate = parseFloat(rate);
+        }
+        /* XRPL META*/
         // await new Promise(resolve => setTimeout(resolve, fetchDelay));
-        const response = await axios(`http://data.ripple.com/v2/exchange_rates/XRP/${currency}+${issuer}`);
+        // const response = await axios(`http://data.ripple.com/v2/exchange_rates/XRP/${currency}+${issuer}`);
 
+        /* OnTheDex REST API START */
+        // const response = await axios("https://api.onthedex.live/public/v1/ticker/"+currency+"." +issuer);
+        // for (let index = 0; index < response.data.pairs.length; index++) {
+        //     if (response.data.pairs[index].quote == "XRP") {
+        //         var hiPrice = parseFloat(response.data.pairs[index].price_hi);
+        //         var loPrice = parseFloat(response.data.pairs[index].price_lo);
+        //         console.log("hi: ", hiPrice, " lo: ", loPrice)
+        //         rate = ( hiPrice > fakePrice ) ? loPrice : hiPrice;
+        //         // console.log(index," ",response.data.pairs[index].quote)
+        //         // console.log("rate ", rate)
+        //         break;
+        //     } 
+
+        // }
+        /* OnTheDex REST API END*/
 
         /* FOUND BUG  START */
         /* Get the remaining rate limit in headers  
@@ -247,32 +322,35 @@ async function rate(currency, issuer) {
         //     retries--;
         //   } else {
             // Do something with the response
-        rate = response.data.rate;
+        // console.log("response.data.pairs ", response.data.pairs)
+       
+
         //   }
         /* FOUND BUG  END*/
-
+        await new Promise(resolve => setTimeout(resolve, delayForFetchingPrice));
         break;
       } catch (err) {
+        console.log("Error status in rate " + err)
         if (err.response && (err.response.status === 429 || err.response.status === 500 || err.response.status === 400)) {
           console.log(`Retrying in ${retryDelay}ms, attempts remaining: ${retries}`);
-
+            
           //Delay every iteration
           await new Promise(resolve => setTimeout(resolve, retryDelay));
           retries--;
         } 
         else if(err.code === 'ENOTFOUND' || err.code === 'ECONNREFUSED' || err.code === 'ECONNRESET'
                                  || err.code === 'ETIMEDOUT' || err.code === 'ECONNABORTED' 
-                                 || err.status === 500) {
+                                 || err.status === 500 || err.status == 522) {
             console.log(`Error connecting to the server${err.code}. Retrying in ${retryDelay}ms, attempts remaining: ${retries}`);
             await new Promise(resolve => setTimeout(resolve, retryDelay));
             retries--;
         }
         else {
-          console.log(`Error: ${err.message}`);
-          break;
+            console.log(`Error connecting to the server${err.code}. Retrying in ${retryDelay}ms, attempts remaining: ${retries}`);
+            await new Promise(resolve => setTimeout(resolve, retryDelay));
+            retries--;
         }
       }
-    
     }
   
     return rate;
@@ -327,8 +405,8 @@ function compareTokenPrice() {
                             }
                         }
                     }
-                    writeFinalReport(object2, file + "1.txt", data, token_compare_file)
                     clearFile(file + "1.txt")
+                    writeFinalReport(object2, file + "1.txt", data, token_compare_file)
                     clearFile(file + "2.txt")
                 }
                 
@@ -382,34 +460,24 @@ function clearFile(file) {
       });
 }
 
-compareTokenPrice
-
-checkEmpty("assets/token_price1.txt", function(result) {
-    accountWorthOnOff = prompt("Want to use account worth? Y/N: ")
-    if (accountWorthOnOff.toLowerCase() === 'y') {
-        get_data(result) 
+checkEmpty("assets/token_price1.txt", function(result) { //callback function
+    var breakFlag = true;
+    while(breakFlag) {
+        accountWorthOnOff = prompt("Want to use account worth? Y/N: ")
+        if (accountWorthOnOff.toLowerCase() === 'y') {
+            get_data(result) 
+            breakFlag = false;
+        }
+        else if (accountWorthOnOff.toLowerCase() === 'n') {
+            console.log('\x1b[32m%s\x1b[0m', "PROGRAM HAS BEEN STARTED.......")
+            breakFlag = false;
+        }
+        else {
+    
+        }
     }
     
 })  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // fs.readFile("assets/order.json", function(err, data) {

@@ -28,19 +28,126 @@
             .xrp-link{
                 margin-left: 80px;
             }
+            
+            /* UPLOAD FILE BUTTON */
+            .upload-btn-container {
+                text-align: right;
+                margin: 10px 6% 10px 5%;
+            }
+
+            .file-name-label {
+                /* display: inline-block; */
+                margin-left: 10px;
+                font-size: 14px;
+                color: #333;
+            }
+
+            .upload-btn-wrapper {
+                position: relative;
+                overflow: hidden;
+                display: inline-block;
+                text-align: right;
+            }
+
+            .btn-upload {
+                border: 2px solid #26cc2c;
+                color: white;
+                background-color: #4CAF50;
+                padding: 8px 10px;
+                border-radius: 8px;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            .btn-upload:hover {
+                background-color: #ffffff;
+                color: #26cc2c;
+            }
+
+            .upload-btn-wrapper input[type=file] {
+                font-size: 100px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                opacity: 0;
+                cursor: pointer;
+            }
+            .note-red {
+                background-color: #ffcccc;
+                color: #a94442;
+                border: 1px solid #ebccd1;
+                padding: 10px 15px;
+                margin: 15px 0;
+                border-radius: 5px;
+                font-weight: bold;
+            }
         </style>
         <title>TRUSTLINE LOOKUP</title>
     </head>
     <body>
         <div class="main">
             <div class="content">
+                <div style="background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 12px 20px; border-radius: 5px; display: flex; align-items: center; gap: 10px;">
+                <span>⚠️</span>
+                <span>Please upload a valid file. Supported format: <strong>.xlsx</strong></span>
+                </div>
                 <h2 class="content-title">Trustline Look Up</h2>
                 <a href="/account_balance" class="xrp-link">View Account Balance</a>
+                <form action="/upload" method="POST" enctype="multipart/form-data">
+                    <div class="upload-btn-container">
+                        <label for="fileInput" style="font-weight: bold; display: block; margin-bottom: 5px;">
+                            Upload Account Addresses (.xlsx):
+                        </label>
+                        
+                        <div class="upload-btn-wrapper" style="display: inline-block; position: relative;">
+                            <img src="../img/upload_ico.png" alt="Upload File" id="uploadImage"
+                                style="cursor: pointer; height: 70px;" />
+                            <input type="file" name="myfile" id="fileInput"
+                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" />
+                        </div>
+
+                        <div>
+                            <span id="file-name" class="file-name-label" style="display: block; margin-top: 10px; font-size: 14px; color: #555;">
+                                No file chosen
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div style="text-align: right; margin: 10px 6% 20px 5%;">
+                        <button type="submit" class="btn-upload">Upload</button>
+                    </div>
+                </form>
+
                 <form method="get" action="to_look">
                     <input type="text" name="address" placeholder="Enter issuer addres" class="address-txtfield">
                     <input type="submit" value="Look" class="look-btn">
                 </form>
             </div>
         </div>
+        <script>
+            <% if (typeof success !== "undefined") { %>
+                alert("File uploaded successfully!");
+            <% } %>
+            <% if (typeof error !== "undefined") { %>
+                alert("No file was uploaded.");
+            <% } %>
+        </script>
+        
+        <script>
+            document.getElementById("uploadImage").addEventListener("click", function () {
+                document.getElementById("fileInput").click();
+            });
+
+            const fileInput = document.getElementById("fileInput");
+            const fileNameSpan = document.getElementById("file-name");
+
+            fileInput.addEventListener("change", function () {
+                const fileName = this.files.length > 0 ? this.files[0].name : "No file chosen";
+                fileNameSpan.textContent = fileName;
+            });
+        </script>
     </body>
 </html>
