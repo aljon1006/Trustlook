@@ -86,12 +86,13 @@ class Position {
         while (retries > 0) {
 
             try {
-                const response = await axios.get("https://data.ripple.com/v2/accounts/"+address+"/balances");
-                total = response.data.balances.length - 1;
-                reserved = total * 2 + 10;
-                xrp = response.data.balances[0].value;
-                available = xrp - reserved;
-                data = {available: available, reserved: reserved};
+                const response = await axios.get("https://api.xrpscan.com/api/v1/account/"+address);
+                // total = response.data.balances.length - 1;
+                // reserved = total * 2 + 10;
+                xrp = response.data.xrpBalance;
+                // available = xrp - reserved;
+                // data = {available: available, reserved: reserved};
+                data = {available: xrp};
                 break;
             } catch (err) {
                 if (err.response && (err.response.status === 429 || err.response.status === 500 || err.response.status === 400)) {
